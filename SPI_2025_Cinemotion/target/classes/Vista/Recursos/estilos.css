@@ -1,0 +1,9 @@
+.button {
+    -fx-cursor: hand;
+    -fx-background-color: #1fa4ca; 
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-text-fill: white;
+}

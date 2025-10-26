@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700" minWidth="1000"  xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorCartelera">
+
+    <center>
+        <HBox spacing="0" style="-fx-background-color: #1c2e48;">
+            <VBox fx:id="barraLateral" alignment="TOP_CENTER" minWidth="200.0" spacing="20" style="-fx-background-color: #284062; -fx-padding: 20;">
+                <HBox alignment="CENTER" layoutX="200.0" layoutY="20.0" maxWidth="160.0" prefHeight="30.0" prefWidth="160.0" spacing="5">
+                    <ImageView fx:id="iconoCinemotion" fitHeight="30" fitWidth="30" />
+                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="242.0" layoutY="26.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="CINEMOTION" textAlignment="CENTER" textFill="WHITE">
+                    </Label>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+                </HBox>
+                <ImageView fx:id="iconoUsuario" fitHeight="80" fitWidth="80" preserveRatio="true" />
+                <Label fx:id="lblBienvenido" style="-fx-text-fill: white; -fx-font-size: 16px;" text="Bienvenido Usuario" />
+                <Button fx:id="btnAgregar" maxWidth="150" onAction="#mostrarFormularioAgregar" style="-fx-background-color: #1fa4ca; -fx-text-fill: white;" text="Agregar Película" />
+                <Button fx:id="btnEliminar" maxWidth="150" onAction="#eliminarPelicula" style="-fx-background-color: #1fa4ca; -fx-text-fill: white;" text="Eliminar Película" />
+                <Pane VBox.vgrow="ALWAYS" />
+                <Button maxWidth="150" onAction="#cerrarSesion" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Cerrar Sesión" />
+            </VBox>
+
+            <VBox alignment="TOP_CENTER" spacing="10" style="-fx-padding: 15;" VBox.vgrow="ALWAYS">
+                <StackPane fx:id="carruselPane" alignment="CENTER" prefHeight="250">
+                    <ImageView fx:id="imagenCarrusel" fitHeight="250" fitWidth="800" preserveRatio="true" />
+                </StackPane>
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Películas en Cartelera" textFill="WHITE" />
+                <ScrollPane fitToWidth="true" prefHeight="368.0" prefWidth="800"  style="-fx-background-color: transparent;">
+                    <TilePane fx:id="peliculasGrid" alignment="CENTER" hgap="15" prefColumns="3" style="-fx-background-color: #1c2e48;" vgap="15" />
+                </ScrollPane>
+            </VBox>
+
+            <VBox fx:id="formularioPanel" managed="false" minWidth="300" prefWidth="300" spacing="10" style="-fx-padding: 15; -fx-background-color: #345480;" visible="false" VBox.vgrow="ALWAYS">
+                <Label fx:id="formularioTitulo" style="-fx-font-size: 18px; -fx-text-fill: white;" text="Agregar/Editar Película" />
+                <TextField fx:id="txtTitulo" promptText="Título" />
+                <TextField fx:id="txtDuracion" promptText="Duración (min)" />
+                <TextField fx:id="txtDirector" promptText="Director" />
+                <TextField fx:id="txtGenero" promptText="Género" />
+                <DatePicker fx:id="fechaEstreno" />
+                <TextField fx:id="txtUrlImg" promptText="URL de imagen vertical" />
+                <HBox spacing="10">
+                    <Button onAction="#guardarPelicula" text="Guardar" />
+                    <Button onAction="#cancelarFormulario" text="Cancelar" />
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
